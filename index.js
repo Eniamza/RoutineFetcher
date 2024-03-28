@@ -5,7 +5,7 @@ const fs = require('fs');
     // Launch the browser and open a new blank page
     const browser = await puppeteer.launch({
         headless: false, // Remove this to run headless
-         slowMo: 25}); // Remove this to disable slowMo Mode, Which will do the actions instantly, without any typing Delay
+         slowMo: 25}); // Remove this to disable slowMo Mode, Which will execute the actions instantly, without any typing Delay
     const page = await browser.newPage();
   
     // Navigating to USIS Login Page
@@ -24,7 +24,7 @@ const fs = require('fs');
     await page.click('#ctl00_leftColumn_ctl00_btnLogin');
 
     //After the login , we wait for the page to load the class schedule
-    //Because this is fetched Dynamically with an API Call and pupolated after the login. 
+    //Because this is fetched Dynamically with an API Call and populated after the login. 
 
     await page.waitForSelector('#student-class-schedule-dashboard-div', { // This is the div that stores the class schedule
         visible: true, // This means until the div is visible, we wait.
